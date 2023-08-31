@@ -1,7 +1,10 @@
-﻿using System;
+﻿using CarClient.ViewModels;
+using CarStore.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
+using System.Net.Http.Json;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -20,17 +23,12 @@ namespace CarClient
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
-    {
-        static HttpClient httpClient = new HttpClient();
+    { 
 
         public MainWindow()
         {
             InitializeComponent();
-        }
-
-        private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
-
+            DataContext = AppViewModel.BuildViewModelAsync();
         }
     }
 }
